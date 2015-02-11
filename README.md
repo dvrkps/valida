@@ -1,4 +1,4 @@
-# valida
+# valida [![Build Status](https://img.shields.io/travis/dvrkps/valida.svg?style=flat-square)](https://travis-ci.org/dvrkps/valida)
 
 Valida checks OIB and JMBG numbers.
 
