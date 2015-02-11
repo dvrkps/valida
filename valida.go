@@ -1,4 +1,4 @@
-// Package valida implements OIB and JMBG validation.
+// Package valida implements OIB and JMBG validations.
 package valida
 
 import "strconv"
