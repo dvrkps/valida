@@ -1,6 +1,6 @@
 # valida
 
-Valida check OIB and JMBG numbers.
+Valida checks OIB and JMBG numbers.
 
 ## Installation
 
