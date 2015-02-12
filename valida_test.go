@@ -5,6 +5,16 @@ import (
 	"testing"
 )
 
+func ExampleJMBG() {
+	ok := "0308964384007"
+	wrong := "invalidJMBG"
+	fmt.Println(JMBG(ok))
+	fmt.Println(JMBG(wrong))
+	// Output:
+	// true
+	// false
+}
+
 func ExampleOIB() {
 	ok := "69435151530"
 	wrong := "invalidOIB"
