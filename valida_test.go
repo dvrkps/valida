@@ -58,6 +58,8 @@ func TestOIB(t *testing.T) {
 		{"123a5b7c901", false},
 		// last invalid
 		{"1234567890a", false},
+		// all zeros
+		{"00000000000", false},
 		// empty
 		{"", false},
 	}
