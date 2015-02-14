@@ -23,13 +23,10 @@ func ExampleMID() {
 }
 
 func ExampleOIB() {
-	ok := "69435151530"
-	wrong := "invalidOIB"
-	fmt.Println(OIB(ok))
-	fmt.Println(OIB(wrong))
+	ok := OIB("69435151530")
+	fmt.Println(ok)
 	// Output:
 	// true
-	// false
 }
 
 func TestMID(t *testing.T) {
