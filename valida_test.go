@@ -15,6 +15,16 @@ func ExampleJMBG() {
 	// false
 }
 
+func ExampleMID() {
+	ok := "1333"
+	wrong := "wrong"
+	fmt.Println(MID(ok))
+	fmt.Println(MID(wrong))
+	// Output:
+	// true
+	// false
+}
+
 func ExampleOIB() {
 	ok := "69435151530"
 	wrong := "invalidOIB"
