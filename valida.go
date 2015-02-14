@@ -5,14 +5,11 @@ import "strconv"
 
 // JMBG validate JMBG number.
 func JMBG(in string) bool {
-	if len(in) != 13 {
+	if len(in) != 13 || in == "0000000000000" {
 		return false
 	}
 	// get first 12 chars
 	digits := in[:len(in)-1]
-	if digits == "000000000000" {
-		return false
-	}
 	coef := 7
 	zzz := 0
 	for _, r := range digits {
