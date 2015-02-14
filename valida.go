@@ -47,19 +47,15 @@ func MID(in string) bool {
 	}
 	// get first 3 chars
 	digits := in[:len(in)-1]
-	coef := 4
 	zzz := 0
-	for _, r := range digits {
+	for i, r := range digits {
+		coef := 4 - i
 		// exit if char not digit
 		d, err := strconv.Atoi(string(r))
 		if err != nil {
 			return false
 		}
 		zzz += d * coef
-		if coef == 2 {
-			coef = 8
-		}
-		coef--
 	}
 	// exit if last char not digit
 	last, err := strconv.Atoi(string(in[len(in)-1:]))
