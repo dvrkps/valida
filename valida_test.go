@@ -6,13 +6,10 @@ import (
 )
 
 func ExampleJMBG() {
-	ok := "0308964384007"
-	wrong := "invalidJMBG"
-	fmt.Println(JMBG(ok))
-	fmt.Println(JMBG(wrong))
+	ok := JMBG("0308964384007")
+	fmt.Println(ok)
 	// Output:
 	// true
-	// false
 }
 
 func ExampleMID() {
