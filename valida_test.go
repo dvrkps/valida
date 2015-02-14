@@ -16,13 +16,10 @@ func ExampleJMBG() {
 }
 
 func ExampleMID() {
-	ok := "1333"
-	wrong := "wrong"
-	fmt.Println(MID(ok))
-	fmt.Println(MID(wrong))
+	ok := MID("1333")
+	fmt.Println(ok)
 	// Output:
 	// true
-	// false
 }
 
 func ExampleOIB() {
