@@ -1,4 +1,4 @@
-// Package valida implements JMBG, Municipal ID and OIB numbers validations.
+// Package valida implements JMBG, MBS, Municipal ID and OIB numbers validations.
 package valida
 
 import "strconv"
@@ -34,6 +34,39 @@ func JMBG(in string) bool {
 	raz := 11 - ost
 	ok1 := ost == 0 && last == 0
 	ok2 := ost > 1 && ost < 11 && last == raz
+	if ok1 || ok2 {
+		return true
+	}
+	return false
+}
+
+// MBS validate MBS number.
+func MBS(in string) bool {
+	if (len(in) != 8 && len(in) != 12) ||
+		in == "00000000" || in == "000000000000" {
+		return false
+	}
+	// get first 7 chars
+	digits := in[:7]
+	zzz := 0
+	for i, r := range digits {
+		coef := 8 - i
+		// exit if char not digit
+		d, err := strconv.Atoi(string(r))
+		if err != nil {
+			return false
+		}
+		zzz += d * coef
+	}
+	// exit if control char not digit
+	control, err := strconv.Atoi(string(in[7:8]))
+	if err != nil {
+		return false
+	}
+	ost := zzz % 11
+	raz := 11 - ost
+	ok1 := ost == 1 && control == 0
+	ok2 := ost > 1 && ost < 11 && control == raz
 	if ok1 || ok2 {
 		return true
 	}
