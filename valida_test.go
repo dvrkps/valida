@@ -12,6 +12,16 @@ func ExampleJMBG() {
 	// true
 }
 
+func ExampleMBS() {
+	okShort := MBS("01130234")
+	okLong := MBS("011302340123")
+	fmt.Println(okShort)
+	fmt.Println(okLong)
+	// Output:
+	// true
+	// true
+}
+
 func ExampleMID() {
 	ok := MID("1333")
 	fmt.Println(ok)
