@@ -84,22 +84,14 @@ func MID(in string) bool {
 		return false
 	}
 	// get first 3 chars
-	digits := in[:len(in)-1]
+	digits := in[:3]
 	zzz := 0
 	for i, r := range digits {
 		coef := 4 - i
-		// exit if char not digit
-		d, err := strconv.Atoi(string(r))
-		if err != nil {
-			return false
-		}
+		d := getDigit(string(r))
 		zzz += d * coef
 	}
-	// exit if last char not digit
-	last, err := strconv.Atoi(string(in[len(in)-1:]))
-	if err != nil {
-		return false
-	}
+	last := getDigit(string(in[3:4]))
 	ost := zzz % 11
 	raz := 11 - ost
 	ok1 := ost == 1 && last == 0
