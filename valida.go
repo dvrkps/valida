@@ -14,7 +14,7 @@ func isValid(in string) bool {
 
 // JMBG validate JMBG number.
 func JMBG(in string) bool {
-	if len(in) != 13 || in == "0000000000000" {
+	if len(in) != 13 || !isValid(in) {
 		return false
 	}
 	// get first 12 chars
@@ -51,8 +51,7 @@ func JMBG(in string) bool {
 
 // MBS validate MBS number.
 func MBS(in string) bool {
-	if (len(in) != 8 && len(in) != 12) ||
-		in == "00000000" || in == "000000000000" {
+	if (len(in) != 8 && len(in) != 12) || !isValid(in) {
 		return false
 	}
 	// get first 7 chars
@@ -84,7 +83,7 @@ func MBS(in string) bool {
 
 // MID validate Municipal ID number.
 func MID(in string) bool {
-	if len(in) != 4 || in == "0000" {
+	if len(in) != 4 || !isValid(in) {
 		return false
 	}
 	// get first 3 chars
