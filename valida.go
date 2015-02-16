@@ -63,17 +63,11 @@ func MBS(in string) bool {
 	for i, r := range digits {
 		coef := 8 - i
 		// exit if char not digit
-		d, err := strconv.Atoi(string(r))
-		if err != nil {
-			return false
-		}
+		d := getDigit(string(r))
 		zzz += d * coef
 	}
 	// exit if control char not digit
-	control, err := strconv.Atoi(string(in[7:8]))
-	if err != nil {
-		return false
-	}
+	control := getDigit(string(in[7:8]))
 	ost := zzz % 11
 	raz := 11 - ost
 	ok1 := ost == 1 && control == 0
