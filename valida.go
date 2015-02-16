@@ -3,6 +3,15 @@ package valida
 
 import "strconv"
 
+// getDigit returns digit.
+func getDigit(in string) int {
+	d, err := strconv.Atoi(in)
+	if d < 0 || err != nil {
+		return 0
+	}
+	return d
+}
+
 // isValid validate input string.
 func isValid(in string) bool {
 	i, err := strconv.ParseInt(in, 10, 64)

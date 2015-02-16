@@ -36,6 +36,28 @@ func ExampleOIB() {
 	// true
 }
 
+func TestGetDigit(t *testing.T) {
+	var tests = []struct {
+		in   string
+		want int
+	}{
+		// valid
+		{"5", 5},
+		// not number
+		{"a", 0},
+		// all zeros
+		{"0", 0},
+		// empty
+		{"", 0},
+	}
+	for _, tt := range tests {
+		if got := getDigit(tt.in); got != tt.want {
+			t.Errorf("getDigit(\"%v\") = %v; want %v",
+				tt.in, got, tt.want)
+		}
+	}
+}
+
 func TestIsValid(t *testing.T) {
 	var tests = []struct {
 		in   string
