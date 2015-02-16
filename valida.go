@@ -27,26 +27,20 @@ func JMBG(in string) bool {
 		return false
 	}
 	// get first 12 chars
-	digits := in[:len(in)-1]
+	digits := in[:12]
 	coef := 7
 	zzz := 0
 	for _, r := range digits {
 		// exit if char not digit
-		d, err := strconv.Atoi(string(r))
-		if err != nil {
-			return false
-		}
+		d := getDigit(string(r))
 		zzz += d * coef
 		if coef == 2 {
 			coef = 8
 		}
 		coef--
 	}
-	// exit if last char not digit
-	last, err := strconv.Atoi(string(in[len(in)-1:]))
-	if err != nil {
-		return false
-	}
+	// get last digit
+	last := getDigit(string(in[12:13]))
 
 	ost := zzz % 11
 	raz := 11 - ost
