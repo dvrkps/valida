@@ -113,10 +113,7 @@ func OIB(in string) bool {
 	o := 10
 	for _, r := range digits {
 		// exit if char not digit
-		d, err := strconv.Atoi(string(r))
-		if err != nil {
-			return false
-		}
+		d := getDigit(string(r))
 		o += d
 		o = o % 10
 		if o == 0 {
@@ -125,11 +122,7 @@ func OIB(in string) bool {
 		o *= 2
 		o = o % 11
 	}
-	// exit if last char not digit
-	last, err := strconv.Atoi(string(in[len(in)-1:]))
-	if err != nil {
-		return false
-	}
+	last := getDigit(string(in[len(in)-1:]))
 	// calc control char
 	ctrl := 11 - o
 	if ctrl == 10 {
