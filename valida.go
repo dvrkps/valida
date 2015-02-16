@@ -3,6 +3,15 @@ package valida
 
 import "strconv"
 
+// isValid validate input string.
+func isValid(in string) bool {
+	i, err := strconv.ParseInt(in, 10, 64)
+	if i > 0 && err == nil {
+		return true
+	}
+	return false
+}
+
 // JMBG validate JMBG number.
 func JMBG(in string) bool {
 	if len(in) != 13 || in == "0000000000000" {
