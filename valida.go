@@ -104,7 +104,7 @@ func MID(in string) bool {
 
 // OIB validate OIB number.
 func OIB(in string) bool {
-	if len(in) != 11 {
+	if len(in) != 11 || !isValid(in) {
 		return false
 	}
 	// get first 10 chars
