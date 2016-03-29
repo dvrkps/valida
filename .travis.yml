@@ -1,7 +1,9 @@
 language: go
 
+sudo: false
+
 go:
-    - 1.5
+    - 1.6
     - tip
 
 notifications:
@@ -12,9 +14,8 @@ notifications:
         on_failure: always
 
 before_install:
-    - go get github.com/axw/gocov/gocov
     - go get github.com/mattn/goveralls
 
 script:
-    - $HOME/gopath/bin/goveralls -repotoken $COVERALLS_TOKEN
+    - $HOME/gopath/bin/goveralls 
 
