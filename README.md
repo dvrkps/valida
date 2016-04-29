@@ -1,4 +1,11 @@
-# valida [![GoDoc](http://img.shields.io/badge/go-documentation-blue.svg?style=flat-square)](http://godoc.org/github.com/dvrkps/valida) [![Build Status](https://img.shields.io/travis/dvrkps/valida.svg?style=flat-square)](https://travis-ci.org/dvrkps/valida) [![Coverage Status](https://img.shields.io/coveralls/dvrkps/valida.svg?style=flat-square)](https://coveralls.io/r/dvrkps/valida)
+# valida [![GoReport Badge]][GoReport] [![Travis Badge]][Travis] [![Codecov Badge]][Codecov]
+
+[GoReport]: https://goreportcard.com/report/github.com/dvrkps/valida
+[GoReport Badge]: https://goreportcard.com/badge/github.com/dvrkps/valida
+[Travis]: https://travis-ci.org/dvrkps/valida
+[Travis Badge]: https://travis-ci.org/dvrkps/valida.svg
+[Codecov]: https://codecov.io/github/dvrkps/valida
+[Codecov Badge]: https://codecov.io/github/dvrkps/valida/coverage.svg
 
 Valida checks JMBG, MBS, Municipal ID and OIB numbers.
 
