@@ -12,7 +12,7 @@ notifications:
         on_failure: always
 
 script:
-    - ./travis.sh
+    - ./coverage.sh
 
 after_success:
     - bash <(curl -s https://codecov.io/bash) || echo "Codecov fails"
