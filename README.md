@@ -4,8 +4,8 @@
 [GoReport Badge]: https://goreportcard.com/badge/github.com/dvrkps/valida
 [Travis]: https://travis-ci.org/dvrkps/valida
 [Travis Badge]: https://travis-ci.org/dvrkps/valida.svg
-[Codecov]: https://codecov.io/github/dvrkps/valida
-[Codecov Badge]: https://codecov.io/github/dvrkps/valida/coverage.svg
+[Codecov]: https://codecov.io/gh/dvrkps/valida
+[Codecov Badge]: https://codecov.io/gh/dvrkps/valida/branch/master/graph/badge.svg
 
 Valida checks JMBG, MBS, Municipal ID and OIB numbers.
 
