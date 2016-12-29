@@ -3,8 +3,8 @@ package valida
 
 import "strconv"
 
-// getDigit returns digit.
-func getDigit(in string) int {
+// digit returns one digit.
+func digit(in string) int {
 	d, err := strconv.Atoi(in)
 	if d < 0 || err != nil {
 		return 0
@@ -32,7 +32,7 @@ func JMBG(in string) bool {
 	zzz := 0
 	for _, r := range digits {
 		// exit if char not digit
-		d := getDigit(string(r))
+		d := digit(string(r))
 		zzz += d * coef
 		if coef == 2 {
 			coef = 8
@@ -40,7 +40,7 @@ func JMBG(in string) bool {
 		coef--
 	}
 	// get last digit
-	last := getDigit(string(in[12:13]))
+	last := digit(string(in[12:13]))
 
 	ost := zzz % 11
 	raz := 11 - ost
@@ -63,11 +63,11 @@ func MBS(in string) bool {
 	for i, r := range digits {
 		coef := 8 - i
 		// exit if char not digit
-		d := getDigit(string(r))
+		d := digit(string(r))
 		zzz += d * coef
 	}
 	// exit if control char not digit
-	control := getDigit(string(in[7:8]))
+	control := digit(string(in[7:8]))
 	ost := zzz % 11
 	raz := 11 - ost
 	ok1 := ost == 1 && control == 0
@@ -88,10 +88,10 @@ func MID(in string) bool {
 	zzz := 0
 	for i, r := range digits {
 		coef := 4 - i
-		d := getDigit(string(r))
+		d := digit(string(r))
 		zzz += d * coef
 	}
-	last := getDigit(string(in[3:4]))
+	last := digit(string(in[3:4]))
 	ost := zzz % 11
 	raz := 11 - ost
 	ok1 := ost == 1 && last == 0
@@ -113,7 +113,7 @@ func OIB(in string) bool {
 	o := 10
 	for _, r := range digits {
 		// exit if char not digit
-		d := getDigit(string(r))
+		d := digit(string(r))
 		o += d
 		o = o % 10
 		if o == 0 {
@@ -122,7 +122,7 @@ func OIB(in string) bool {
 		o *= 2
 		o = o % 11
 	}
-	last := getDigit(string(in[len(in)-1:]))
+	last := digit(string(in[len(in)-1:]))
 	// calc control char
 	ctrl := 11 - o
 	if ctrl == 10 {
