@@ -57,17 +57,11 @@ func MBS(in string) bool {
 	if (len(in) != 8 && len(in) != 12) || !isValid(in) {
 		return false
 	}
-	// get first 7 chars
+
 	ost, raz := mbsCalc(in)
 
-	control := digit(in[7:8])
+	return mbsValid(in, ost, raz)
 
-	ok1 := ost == 1 && control == 0
-	ok2 := ost > 1 && ost < 11 && control == raz
-	if ok1 || ok2 {
-		return true
-	}
-	return false
 }
 
 func mbsCalc(in string) (int, int) {
@@ -84,6 +78,16 @@ func mbsCalc(in string) (int, int) {
 	raz := 11 - ost
 
 	return ost, raz
+}
+
+func mbsValid(in string, ost, raz int) bool {
+	control := digit(in[7:8])
+	ok1 := ost == 1 && control == 0
+	ok2 := ost > 1 && ost < 11 && control == raz
+	if ok1 || ok2 {
+		return true
+	}
+	return false
 }
 
 // MID validate Municipal ID number.
