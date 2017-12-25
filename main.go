@@ -17,12 +17,3 @@ func digits(n int) []int {
 
 	return all
 }
-
-func digitsString(in string) []int {
-	var all []int
-	for _, r := range in {
-		d := digit(string(r))
-		all = append(all, d)
-	}
-	return all
-}
