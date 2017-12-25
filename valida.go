@@ -84,11 +84,28 @@ func MID(in string) bool {
 		return false
 	}
 
+	ost, raz := midCalc(in)
+
+	return midValid(in, ost, raz)
+
+}
+
+func midCalc(in string) (int, int) {
 	first3 := in[:3]
-	zzz := midCalc(first3)
+	zzz := 0
+	for i, r := range first3 {
+		coef := 4 - i
+		d := digit(string(r))
+		zzz += d * coef
+	}
+
 	ost := zzz % 11
 	raz := 11 - ost
 
+	return ost, raz
+}
+
+func midValid(in string, ost, raz int) bool {
 	last := digit(in[3:4])
 	ok1 := ost == 1 && last == 0
 	ok2 := ost > 1 && ost < 11 && last == raz
@@ -96,16 +113,6 @@ func MID(in string) bool {
 		return true
 	}
 	return false
-}
-
-func midCalc(first3 string) int {
-	zzz := 0
-	for i, r := range first3 {
-		coef := 4 - i
-		d := digit(string(r))
-		zzz += d * coef
-	}
-	return zzz
 }
 
 // OIB validate OIB number.
