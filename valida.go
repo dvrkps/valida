@@ -83,23 +83,29 @@ func MID(in string) bool {
 	if len(in) != 4 || !isValid(in) {
 		return false
 	}
-	// get first 3 chars
-	digits := in[:3]
-	zzz := 0
-	for i, r := range digits {
-		coef := 4 - i
-		d := digit(string(r))
-		zzz += d * coef
-	}
-	last := digit(in[3:4])
+
+	first3 := in[:3]
+	zzz := midCalc(first3)
 	ost := zzz % 11
 	raz := 11 - ost
+
+	last := digit(in[3:4])
 	ok1 := ost == 1 && last == 0
 	ok2 := ost > 1 && ost < 11 && last == raz
 	if ok1 || ok2 {
 		return true
 	}
 	return false
+}
+
+func midCalc(first3 string) int {
+	zzz := 0
+	for i, r := range first3 {
+		coef := 4 - i
+		d := digit(string(r))
+		zzz += d * coef
+	}
+	return zzz
 }
 
 // OIB validate OIB number.
