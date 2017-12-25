@@ -107,9 +107,21 @@ func OIB(in string) bool {
 	if len(in) != 11 || !isValid(in) {
 		return false
 	}
-	// get first 10 chars
-	digits := in[:len(in)-1]
-	//
+
+	first10 := in[:len(in)-1]
+	o := oibCalc(first10)
+
+	last := digit(string(in[len(in)-1:]))
+
+	// calc control char
+	ctrl := 11 - o
+	if ctrl == 10 {
+		ctrl = 0
+	}
+	return ctrl == last
+}
+
+func oibCalc(digits string) int {
 	o := 10
 	for _, r := range digits {
 		// exit if char not digit
@@ -122,11 +134,5 @@ func OIB(in string) bool {
 		o *= 2
 		o = o % 11
 	}
-	last := digit(string(in[len(in)-1:]))
-	// calc control char
-	ctrl := 11 - o
-	if ctrl == 10 {
-		ctrl = 0
-	}
-	return ctrl == last
+	return o
 }
