@@ -21,14 +21,3 @@ func TestDigits(t *testing.T) {
 		}
 	}
 }
-
-var result []int
-
-func BenchmarkDigits(b *testing.B) {
-	var r []int
-	b.ResetTimer()
-	for n := 0; n < b.N; n++ {
-		r = digits(12345678901234)
-	}
-	result = r
-}
