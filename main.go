@@ -11,23 +11,29 @@ func digits(in string, noChars int) ([]int, int, bool) {
 	}
 
 	all := make([]int, 0, lenIn)
-	zeroes := 0
 	for _, char := range in {
 		d, err := strconv.Atoi(string(char))
 		if err != nil {
 			return empty, 0, false
 		}
-		if d == 0 {
-			zeroes++
-		}
 		all = append(all, d)
 	}
 
-	if zeroes == lenIn {
+	if isZero(all) {
 		return empty, 0, false
 	}
 
 	digits := all[:len(all)-1]
 	last := all[len(all)-1]
 	return digits, last, true
+}
+
+func isZero(all []int) bool {
+	n := 0
+	for _, d := range all {
+		if d == 0 {
+			n++
+		}
+	}
+	return n == len(all)
 }
