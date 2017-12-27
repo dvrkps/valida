@@ -43,6 +43,7 @@ func TestJMBG(t *testing.T) {
 	}{
 		// valid
 		{"0308964384007", true},
+		{"0123456788100", true},
 		// too short
 		{"123", false},
 		// invalid

@@ -14,6 +14,7 @@ func TestDigits(t *testing.T) {
 		last    int
 	}{
 		{in: "12345", noChars: 5, digits: []int{1, 2, 3, 4}, last: 5},
+		{fail: true, in: "0000000000", noChars: 10, digits: []int{}, last: 0},
 		{fail: true, in: "12a", noChars: 3, digits: []int{}, last: 0},
 		{fail: true, in: "", noChars: 3, digits: []int{}, last: 0},
 		{fail: true, in: "-12", noChars: 3, digits: []int{}, last: 0},
