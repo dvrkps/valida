@@ -17,8 +17,5 @@ func JMBG(in string) bool {
 		coef--
 	}
 
-	rem := zzz % 11
-	diff := 11 - rem
-
-	return validate(rem, 0, diff, last)
+	return validate(zzz, last, true)
 }
