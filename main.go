@@ -1,19 +1,25 @@
 package valida
 
-func digits(n int) []int {
-	raw := make([]int, 0, 20)
-	var d int
-	for n > 0 {
-		d = n % 10
-		raw = append(raw, d)
-		n /= 10
+import "strconv"
+
+func digits(in string, noChars int) ([]int, int, bool) {
+	empty := []int{}
+
+	lenIn := len(in)
+	if lenIn != noChars {
+		return empty, 0, false
 	}
 
-	lenRaw := len(raw)
-	all := make([]int, 0, lenRaw)
-	for i := lenRaw - 1; i >= 0; i-- {
-		all = append(all, raw[i])
+	all := make([]int, 0, lenIn)
+	for _, char := range in {
+		d, err := strconv.Atoi(string(char))
+		if err != nil {
+			return empty, 0, false
+		}
+		all = append(all, d)
 	}
 
-	return all
+	digits := all[:len(all)-1]
+	last := all[len(all)-1]
+	return digits, last, true
 }
