@@ -5,30 +5,28 @@ import "strconv"
 
 // JMBG validate JMBG number.
 func JMBG(in string) bool {
-	if len(in) != 13 || !isValidOld(in) {
+	first12, last, ok := digits(in, 13)
+	if !ok {
 		return false
 	}
-	// get first 12 chars
-	digits := in[:12]
+
 	coef := 7
 	zzz := 0
-	for _, r := range digits {
-		// exit if char not digit
-		d := digit(string(r))
+	for _, d := range first12 {
 		zzz += d * coef
 		if coef == 2 {
 			coef = 8
 		}
 		coef--
 	}
-	// get last digit
-	last := digit(in[12:13])
 
 	ost := zzz % 11
 	raz := 11 - ost
-	ok1 := ost == 0 && last == 0
-	ok2 := ost > 1 && ost < 11 && last == raz
-	if ok1 || ok2 {
+
+	if ost == 0 && last == 0 {
+		return true
+	}
+	if ost > 1 && ost < 11 && last == raz {
 		return true
 	}
 	return false
