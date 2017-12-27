@@ -3,43 +3,6 @@ package valida
 
 import "strconv"
 
-// MID validate Municipal ID number.
-func MID(in string) bool {
-	if len(in) != 4 || !isValidOld(in) {
-		return false
-	}
-
-	ost, raz := midCalc(in)
-
-	return midValid(in, ost, raz)
-
-}
-
-func midCalc(in string) (int, int) {
-	first3 := in[:3]
-	zzz := 0
-	for i, r := range first3 {
-		coef := 4 - i
-		d := digit(string(r))
-		zzz += d * coef
-	}
-
-	ost := zzz % 11
-	raz := 11 - ost
-
-	return ost, raz
-}
-
-func midValid(in string, ost, raz int) bool {
-	last := digit(in[3:4])
-	ok1 := ost == 1 && last == 0
-	ok2 := ost > 1 && ost < 11 && last == raz
-	if ok1 || ok2 {
-		return true
-	}
-	return false
-}
-
 // OIB validate OIB number.
 func OIB(in string) bool {
 	if len(in) != 11 || !isValidOld(in) {
