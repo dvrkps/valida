@@ -16,8 +16,5 @@ func MBS(in string) bool {
 		zzz += d * coef
 	}
 
-	rem := zzz % 11
-	diff := 11 - rem
-
-	return validate(rem, 1, diff, last)
+	return validate(zzz, last, false)
 }
