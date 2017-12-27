@@ -38,7 +38,13 @@ func isZero(all []int) bool {
 	return n == len(all)
 }
 
-func validate(rem, wantRem, diff, last int) bool {
+func validate(zzz int, last int, isJMBG bool) bool {
+	rem := zzz % 11
+	diff := 11 - rem
+	wantRem := 1
+	if isJMBG {
+		wantRem = 0
+	}
 	if rem == wantRem && last == 0 {
 		return true
 	}
