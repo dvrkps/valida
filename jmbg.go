@@ -17,14 +17,8 @@ func JMBG(in string) bool {
 		coef--
 	}
 
-	ost := zzz % 11
-	raz := 11 - ost
+	rem := zzz % 11
+	diff := 11 - rem
 
-	if ost == 0 && last == 0 {
-		return true
-	}
-	if ost > 1 && ost < 11 && last == raz {
-		return true
-	}
-	return false
+	return validate(rem, 0, diff, last)
 }
