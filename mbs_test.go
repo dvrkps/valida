@@ -29,8 +29,6 @@ func TestMBS(t *testing.T) {
 		{"12345678", false},
 		// not number
 		{"1a23b567", false},
-		// last invalid
-		{"1234567x", false},
 		// all zeros
 		{"00000000", false},
 		// empty
@@ -38,7 +36,7 @@ func TestMBS(t *testing.T) {
 	}
 	for _, tt := range tests {
 		if got := MBS(tt.in); got != tt.want {
-			t.Errorf("MBS(\"%v\") = %v; want %v",
+			t.Errorf("MBS(%q) = %v; want %v",
 				tt.in, got, tt.want)
 		}
 	}

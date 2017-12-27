@@ -26,8 +26,6 @@ func TestMID(t *testing.T) {
 		{"1234", false},
 		// not number
 		{"1a23", false},
-		// last invalid
-		{"012a", false},
 		// all zeros
 		{"0000", false},
 		// empty
@@ -35,7 +33,7 @@ func TestMID(t *testing.T) {
 	}
 	for _, tt := range tests {
 		if got := MID(tt.in); got != tt.want {
-			t.Errorf("MID(\"%v\") = %v; want %v",
+			t.Errorf("MID(%q) = %v; want %v",
 				tt.in, got, tt.want)
 		}
 	}
