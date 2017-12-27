@@ -37,3 +37,13 @@ func isZero(all []int) bool {
 	}
 	return n == len(all)
 }
+
+func validate(rem, wantRem, diff, last int) bool {
+	if rem == wantRem && last == 0 {
+		return true
+	}
+	if rem > 1 && rem < 11 && last == diff {
+		return true
+	}
+	return false
+}
