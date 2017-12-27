@@ -172,7 +172,7 @@ func TestDigit(t *testing.T) {
 	}
 }
 
-func TestIsValid(t *testing.T) {
+func TestIsValidOld(t *testing.T) {
 	var tests = []struct {
 		in   string
 		want bool
@@ -189,8 +189,8 @@ func TestIsValid(t *testing.T) {
 		{"", false},
 	}
 	for _, tt := range tests {
-		if got := isValid(tt.in); got != tt.want {
-			t.Errorf("isValid(\"%v\") = %v; want %v",
+		if got := isValidOld(tt.in); got != tt.want {
+			t.Errorf("isValidOld(\"%v\") = %v; want %v",
 				tt.in, got, tt.want)
 		}
 	}

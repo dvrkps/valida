@@ -5,7 +5,7 @@ import "strconv"
 
 // JMBG validate JMBG number.
 func JMBG(in string) bool {
-	if len(in) != 13 || !isValid(in) {
+	if len(in) != 13 || !isValidOld(in) {
 		return false
 	}
 	// get first 12 chars
@@ -36,7 +36,7 @@ func JMBG(in string) bool {
 
 // MBS validate MBS number.
 func MBS(in string) bool {
-	if (len(in) != 8 && len(in) != 12) || !isValid(in) {
+	if (len(in) != 8 && len(in) != 12) || !isValidOld(in) {
 		return false
 	}
 
@@ -74,7 +74,7 @@ func mbsValid(in string, ost, raz int) bool {
 
 // MID validate Municipal ID number.
 func MID(in string) bool {
-	if len(in) != 4 || !isValid(in) {
+	if len(in) != 4 || !isValidOld(in) {
 		return false
 	}
 
@@ -111,7 +111,7 @@ func midValid(in string, ost, raz int) bool {
 
 // OIB validate OIB number.
 func OIB(in string) bool {
-	if len(in) != 11 || !isValid(in) {
+	if len(in) != 11 || !isValidOld(in) {
 		return false
 	}
 
@@ -154,7 +154,7 @@ func digit(in string) int {
 }
 
 // isValid validate input string.
-func isValid(in string) bool {
+func isValidOld(in string) bool {
 	i, err := strconv.ParseInt(in, 10, 64)
 	if i > 0 && err == nil {
 		return true
