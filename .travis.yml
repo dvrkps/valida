@@ -1,18 +1,10 @@
 language: go
 
 go:
-    - 1.x
-    - tip
-
-notifications:
-    email: 
-        recipients:
-            - davor.kapsa@gmail.com
-        on_success: never
-        on_failure: always
+    - master
 
 script:
-    - make test
+    - go test -v -race -coverprofile=coverage.txt -covermode=atomic ./...
 
 after_success:
-    - make codecov
+    - bash <(curl -s https://codecov.io/bash)
