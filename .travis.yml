@@ -4,7 +4,7 @@ go:
   - master
 
 env:
-  - GO111MODULE=on GOPROXY=https://proxy.golang.org
+  - GO111MODULE=on
 
 git:
   depth: 1
@@ -14,8 +14,6 @@ install: true
 branches:
   only:
   - master
-
-
 
 script:
   - go test -v -race -coverprofile=coverage.txt ./...
