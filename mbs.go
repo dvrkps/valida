@@ -18,5 +18,5 @@ func MBS(in string) bool {
 		zzz += d * coef
 	}
 
-	return validate(zzz, last, false)
+	return isValid(zzz, last)
 }

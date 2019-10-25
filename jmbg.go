@@ -19,5 +19,5 @@ func JMBG(in string) bool {
 		coef--
 	}
 
-	return validate(zzz, last, true)
+	return isValidJMBG(zzz, last)
 }
