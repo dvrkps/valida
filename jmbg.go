@@ -8,9 +8,11 @@ func JMBG(in string) bool {
 	}
 
 	coef := 7
+
 	zzz := 0
 	for _, d := range first12 {
 		zzz += d * coef
+
 		if coef == 2 {
 			coef = 8
 		}

@@ -26,6 +26,7 @@ func TestDigits(t *testing.T) {
 				t.Errorf("digits(%q, %v) = %v, %v, %v; want %v, %v, <false>",
 					tt.in, tt.noChars, gotDigits, gotLast, ok, tt.digits, tt.last)
 			}
+
 			continue
 		}
 
@@ -33,6 +34,5 @@ func TestDigits(t *testing.T) {
 			t.Errorf("digits(%q, %v) = %v, %v, %v; want %v, %v, <false>",
 				tt.in, tt.noChars, gotDigits, gotLast, ok, tt.digits, tt.last)
 		}
-
 	}
 }

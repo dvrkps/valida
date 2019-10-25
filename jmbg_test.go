@@ -31,6 +31,7 @@ func TestJMBG(t *testing.T) {
 		// empty
 		{"", false},
 	}
+
 	for _, tt := range tests {
 		if got := JMBG(tt.in); got != tt.want {
 			t.Errorf("JMBG(%q) = %v; want %v",

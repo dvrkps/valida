@@ -30,6 +30,7 @@ func TestOIB(t *testing.T) {
 		// empty
 		{"", false},
 	}
+
 	for _, tt := range tests {
 		if got := OIB(tt.in); got != tt.want {
 			t.Errorf("OIB(%q) = %v; want %v",

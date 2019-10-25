@@ -11,12 +11,14 @@ func OIB(in string) bool {
 	o := 10
 	for _, d := range first10 {
 		o += d
-		o = o % 10
+		o %= 10
+
 		if o == 0 {
 			o = 10
 		}
+
 		o *= 2
-		o = o % 11
+		o %= 11
 	}
 
 	// calc control char
@@ -24,5 +26,6 @@ func OIB(in string) bool {
 	if ctrl == 10 {
 		ctrl = 0
 	}
+
 	return ctrl == last
 }

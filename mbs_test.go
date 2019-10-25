@@ -7,9 +7,11 @@ import (
 
 func ExampleMBS() {
 	okShort := MBS("01130234")
-	okLong := MBS("011302340123")
 	fmt.Println(okShort)
+
+	okLong := MBS("011302340123")
 	fmt.Println(okLong)
+
 	// Output:
 	// true
 	// true
@@ -34,6 +36,7 @@ func TestMBS(t *testing.T) {
 		// empty
 		{"", false},
 	}
+
 	for _, tt := range tests {
 		if got := MBS(tt.in); got != tt.want {
 			t.Errorf("MBS(%q) = %v; want %v",

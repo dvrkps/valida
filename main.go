@@ -11,11 +11,13 @@ func digits(in string, noChars int) ([]int, int, bool) {
 	}
 
 	all := make([]int, 0, lenIn)
+
 	for _, char := range in {
 		d, err := strconv.Atoi(string(char))
 		if err != nil {
 			return empty, 0, false
 		}
+
 		all = append(all, d)
 	}
 
@@ -25,16 +27,19 @@ func digits(in string, noChars int) ([]int, int, bool) {
 
 	digits := all[:len(all)-1]
 	last := all[len(all)-1]
+
 	return digits, last, true
 }
 
 func isZero(all []int) bool {
 	n := 0
+
 	for _, d := range all {
 		if d == 0 {
 			n++
 		}
 	}
+
 	return n == len(all)
 }
 
@@ -42,14 +47,18 @@ func validate(zzz int, last int, isJMBG bool) bool {
 	rem := zzz % 11
 	diff := 11 - rem
 	wantRem := 1
+
 	if isJMBG {
 		wantRem = 0
 	}
+
 	if rem == wantRem && last == 0 {
 		return true
 	}
+
 	if rem > 1 && rem < 11 && last == diff {
 		return true
 	}
+
 	return false
 }

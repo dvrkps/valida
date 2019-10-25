@@ -31,6 +31,7 @@ func TestMID(t *testing.T) {
 		// empty
 		{"", false},
 	}
+
 	for _, tt := range tests {
 		if got := MID(tt.in); got != tt.want {
 			t.Errorf("MID(%q) = %v; want %v",
