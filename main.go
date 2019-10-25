@@ -53,15 +53,20 @@ func isValidJMBG(zzz int, last int) bool {
 
 func validate(zzz int, last int, wantRem int) bool {
 	rem := zzz % 11
-	diff := 11 - rem
 
 	if rem == wantRem && last == 0 {
 		return true
 	}
 
-	if rem > 1 && rem < 11 && last == diff {
-		return true
+	if rem < 2 {
+		return false
 	}
 
-	return false
+	if rem > 10 {
+		return false
+	}
+
+	diff := 11 - rem
+
+	return last != diff
 }
