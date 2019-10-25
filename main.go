@@ -68,5 +68,5 @@ func validate(zzz int, last int, wantRem int) bool {
 
 	diff := 11 - rem
 
-	return last != diff
+	return last == diff
 }
