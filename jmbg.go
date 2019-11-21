@@ -2,7 +2,7 @@ package valida
 
 // JMBG validate JMBG number.
 func JMBG(in string) bool {
-	first12, last, ok := digits(in, 13)
+	first12, last, ok := oldDigits(in, 13)
 	if !ok {
 		return false
 	}

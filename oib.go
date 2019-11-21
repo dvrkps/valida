@@ -3,7 +3,7 @@ package valida
 
 // OIB validate OIB number.
 func OIB(in string) bool {
-	first10, last, ok := digits(in, 11)
+	first10, last, ok := oldDigits(in, 11)
 	if !ok {
 		return false
 	}

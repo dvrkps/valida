@@ -2,7 +2,7 @@ package valida
 
 // MID validate Municipal ID number.
 func MID(in string) bool {
-	first3, last, ok := digits(in, 4)
+	first3, last, ok := oldDigits(in, 4)
 	if !ok {
 		return false
 	}
