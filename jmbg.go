@@ -2,15 +2,18 @@ package valida
 
 // JMBG validate JMBG number.
 func JMBG(in string) bool {
-	first12, last, ok := oldDigits(in, 13)
+	digs, ok := parseDigits([]byte(in))
 	if !ok {
+		return false
+	}
+	if digs.size() != 13 {
 		return false
 	}
 
 	coef := 7
 
 	zzz := 0
-	for _, d := range first12 {
+	for _, d := range digs.withoutLast() {
 		zzz += d * coef
 
 		if coef == 2 {
@@ -19,5 +22,5 @@ func JMBG(in string) bool {
 		coef--
 	}
 
-	return isValidJMBG(zzz, last)
+	return isValidJMBG(zzz, digs.last())
 }

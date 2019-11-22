@@ -3,13 +3,16 @@ package valida
 
 // OIB validate OIB number.
 func OIB(in string) bool {
-	first10, last, ok := oldDigits(in, 11)
+	digs, ok := parseDigits([]byte(in))
 	if !ok {
+		return false
+	}
+	if digs.size() != 11 {
 		return false
 	}
 
 	o := 10
-	for _, d := range first10 {
+	for _, d := range digs.withoutLast() {
 		o += d
 		o %= 10
 
@@ -27,5 +30,5 @@ func OIB(in string) bool {
 		ctrl = 0
 	}
 
-	return ctrl == last
+	return ctrl == digs.last()
 }

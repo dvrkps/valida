@@ -9,6 +9,9 @@ func isValidJMBG(zzz int, last int) bool {
 }
 
 func validate(zzz int, last int, wantRem int) bool {
+	if zzz == 0 {
+		return false
+	}
 	rem := zzz % 11
 
 	if rem == wantRem && last == 0 {

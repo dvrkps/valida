@@ -6,17 +6,20 @@ func MBS(in string) bool {
 		in = in[:8]
 	}
 
-	first7, last, ok := oldDigits(in, 8)
+	digs, ok := parseDigits([]byte(in))
 	if !ok {
+		return false
+	}
+	if digs.size() != 8 {
 		return false
 	}
 
 	zzz := 0
 
-	for i, d := range first7 {
+	for i, d := range digs.withoutLast() {
 		coef := 8 - i
 		zzz += d * coef
 	}
 
-	return isValid(zzz, last)
+	return isValid(zzz, digs.last())
 }

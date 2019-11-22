@@ -33,6 +33,7 @@ func TestMBS(t *testing.T) {
 		{"1a23b567", false},
 		// all zeros
 		{"00000000", false},
+		{"000000000000", false},
 		// empty
 		{"", false},
 	}

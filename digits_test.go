@@ -2,7 +2,6 @@ package valida
 
 import (
 	"fmt"
-	"reflect"
 	"testing"
 )
 
@@ -16,7 +15,6 @@ func TestDigits(t *testing.T) {
 		{all: []int{1, 2, 3}, size: 3, woLast: []int{1, 2}, last: 3},
 		{all: []int{1}, size: 1, woLast: []int{}, last: 1},
 		{all: []int{}},
-		{all: nil},
 	}
 	for _, tt := range tests {
 		d := digits{all: tt.all}
@@ -85,38 +83,6 @@ func TestParseDigits(t *testing.T) {
 		if !equal {
 			t.Errorf("parseDigits(%q) = %v, %v; want %v, <false>",
 				tt.in, got, gotOK, tt.want)
-		}
-	}
-}
-
-func TestOldDigits(t *testing.T) {
-	tests := []struct {
-		ok      bool
-		in      string
-		noChars int
-		digits  []int
-		last    int
-	}{
-		{ok: true, in: "12345", noChars: 5, digits: []int{1, 2, 3, 4}, last: 5},
-		{in: "0000000000", noChars: 10, digits: []int{}, last: 0},
-		{in: "12a", noChars: 3, digits: []int{}, last: 0},
-		{in: "", noChars: 3, digits: []int{}, last: 0},
-		{in: "-12", noChars: 3, digits: []int{}, last: 0},
-	}
-	for _, tt := range tests {
-		gotDigits, gotLast, ok := oldDigits(tt.in, tt.noChars)
-		if !tt.ok {
-			if len(gotDigits) != 0 || gotLast != 0 || ok {
-				t.Errorf("digits(%q, %v) = %v, %v, %v; want %v, %v, <false>",
-					tt.in, tt.noChars, gotDigits, gotLast, ok, tt.digits, tt.last)
-			}
-
-			continue
-		}
-
-		if !reflect.DeepEqual(gotDigits, tt.digits) || gotLast != tt.last || !ok {
-			t.Errorf("digits(%q, %v) = %v, %v, %v; want %v, %v, <false>",
-				tt.in, tt.noChars, gotDigits, gotLast, ok, tt.digits, tt.last)
 		}
 	}
 }
