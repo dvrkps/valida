@@ -25,11 +25,6 @@ func validate(zzz int, last int, wantRem int) bool {
 		return false
 	}
 
-	const remMax = 10
-	if rem > remMax {
-		return false
-	}
-
 	const diffMax = 11
 	diff := diffMax - rem
 
