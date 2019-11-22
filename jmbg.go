@@ -6,14 +6,11 @@ func JMBG(in string) bool {
 	if !ok {
 		return false
 	}
-	if digs.size() != 13 {
-		return false
-	}
 
 	coef := 7
 
 	zzz := 0
-	for _, d := range digs.withoutLast() {
+	for _, d := range digs.first(12) {
 		zzz += d * coef
 
 		if coef == 2 {

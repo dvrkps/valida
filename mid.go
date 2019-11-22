@@ -6,13 +6,10 @@ func MID(in string) bool {
 	if !ok {
 		return false
 	}
-	if digs.size() != 4 {
-		return false
-	}
 
 	zzz := 0
 
-	for i, d := range digs.withoutLast() {
+	for i, d := range digs.first(3) {
 		coef := 4 - i
 		zzz += d * coef
 	}

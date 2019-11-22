@@ -10,13 +10,10 @@ func MBS(in string) bool {
 	if !ok {
 		return false
 	}
-	if digs.size() != 8 {
-		return false
-	}
 
 	zzz := 0
 
-	for i, d := range digs.withoutLast() {
+	for i, d := range digs.first(7) {
 		coef := 8 - i
 		zzz += d * coef
 	}

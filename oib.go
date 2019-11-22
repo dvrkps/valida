@@ -7,12 +7,9 @@ func OIB(in string) bool {
 	if !ok {
 		return false
 	}
-	if digs.size() != 11 {
-		return false
-	}
 
 	o := 10
-	for _, d := range digs.withoutLast() {
+	for _, d := range digs.first(10) {
 		o += d
 		o %= 10
 

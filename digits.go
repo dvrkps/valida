@@ -4,12 +4,8 @@ type digits struct {
 	all []int
 }
 
-func (d *digits) size() int {
-	return len(d.all)
-}
-
-func (d *digits) withoutLast() []int {
-	if len(d.all) < 2 {
+func (d *digits) first(n int) []int {
+	if len(d.all) < n {
 		return []int{}
 	}
 	return d.all[:len(d.all)-1]
