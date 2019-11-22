@@ -2,7 +2,8 @@ package valida
 
 // MBS validate MBS number.
 func MBS(in string) bool {
-	if len(in) == 12 {
+	const maxDigits = 12
+	if len(in) == maxDigits {
 		in = in[:8]
 	}
 
@@ -13,8 +14,13 @@ func MBS(in string) bool {
 
 	zzz := 0
 
-	for i, d := range digs.first(7) {
-		coef := 8 - i
+	const (
+		noDigits = 7
+		coefMax  = 8
+	)
+
+	for i, d := range digs.first(noDigits) {
+		coef := coefMax - i
 		zzz += d * coef
 	}
 

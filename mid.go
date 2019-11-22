@@ -9,8 +9,13 @@ func MID(in string) bool {
 
 	zzz := 0
 
-	for i, d := range digs.first(3) {
-		coef := 4 - i
+	const (
+		noDigits = 3
+		coefMax  = 4
+	)
+
+	for i, d := range digs.first(noDigits) {
+		coef := coefMax - i
 		zzz += d * coef
 	}
 

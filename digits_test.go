@@ -20,6 +20,7 @@ func TestParseDigits(t *testing.T) {
 	for _, tt := range tests {
 		in := []byte(tt.in)
 		got, gotOK := parseDigits(in)
+
 		if !tt.ok {
 			if gotOK {
 				t.Errorf("parseDigits(%q) = %v, %v; want %v, <false>",
@@ -28,15 +29,18 @@ func TestParseDigits(t *testing.T) {
 
 			continue
 		}
+
 		equal := true
 		if len(got.all) != len(tt.want.all) {
 			equal = false
 		}
+
 		for i, v := range got.all {
 			if v != tt.want.all[i] {
 				equal = false
 			}
 		}
+
 		if !equal {
 			t.Errorf("parseDigits(%q) = %v, %v; want %v, <false>",
 				tt.in, got, gotOK, tt.want)

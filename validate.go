@@ -12,21 +12,26 @@ func validate(zzz int, last int, wantRem int) bool {
 	if zzz == 0 {
 		return false
 	}
-	rem := zzz % 11
+
+	const remModulo = 11
+	rem := zzz % remModulo
 
 	if rem == wantRem && last == 0 {
 		return true
 	}
 
-	if rem < 2 {
+	const remMin = 2
+	if rem < remMin {
 		return false
 	}
 
-	if rem > 10 {
+	const remMax = 10
+	if rem > remMax {
 		return false
 	}
 
-	diff := 11 - rem
+	const diffMax = 11
+	diff := diffMax - rem
 
 	return last == diff
 }

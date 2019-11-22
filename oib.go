@@ -9,7 +9,10 @@ func OIB(in string) bool {
 	}
 
 	o := 10
-	for _, d := range digs.first(10) {
+
+	const noDigits = 10
+
+	for _, d := range digs.first(noDigits) {
 		o += d
 		o %= 10
 
@@ -22,8 +25,13 @@ func OIB(in string) bool {
 	}
 
 	// calc control char
-	ctrl := 11 - o
-	if ctrl == 10 {
+	const (
+		ctrl10 = 10
+		ctrl11 = 11
+	)
+
+	ctrl := ctrl11 - o
+	if ctrl == ctrl10 {
 		ctrl = 0
 	}
 
