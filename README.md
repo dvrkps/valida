@@ -1,11 +1,9 @@
-# valida [![GoReport Badge]][GoReport] [![Actions Badge]][Actions] [![Travis Badge]][Travis] [![Codecov Badge]][Codecov]
+# valida [![GoReport Badge]][GoReport] [![Actions Badge]][Actions] [![Codecov Badge]][Codecov]
 
 [GoReport]: https://goreportcard.com/report/github.com/dvrkps/valida
 [GoReport Badge]: https://goreportcard.com/badge/github.com/dvrkps/valida
 [Actions]:https://github.com/dvrkps/valida/actions
 [Actions Badge]:https://github.com/dvrkps/valida/workflows/Test/badge.svg
-[Travis]: https://travis-ci.org/dvrkps/valida
-[Travis Badge]: https://travis-ci.org/dvrkps/valida.svg
 [Codecov]: https://codecov.io/gh/dvrkps/valida
 [Codecov Badge]: https://codecov.io/gh/dvrkps/valida/branch/master/graph/badge.svg
 
