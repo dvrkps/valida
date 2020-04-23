@@ -1,4 +1,4 @@
-name: Test
+name: Test and coverage
 on:
   push:
   schedule:
@@ -15,5 +15,10 @@ jobs:
       id: go
     - name: Checkout code
       uses: actions/checkout@v2
-    - name: Run tests
-      run: go test -v -race -cover ./...
+    - name: Run tests and coverage
+      run: go test -v -race -cover -coverprofile=coverage.txt ./...
+    - name: Upload coverage to Codecov  
+      uses: codecov/codecov-action@v1
+      with:
+        file: ./coverage.txt
+        fail_ci_if_error: true
