@@ -1,12 +1,11 @@
-package valida
+package jmbg
 
 import (
 	"github.com/dvrkps/valida/internal/digits"
 	"github.com/dvrkps/valida/internal/validate"
 )
 
-// JMBG validate JMBG number.
-func JMBG(in string) bool {
+func OK(in string) bool {
 	digs, ok := digits.ParseDigits([]byte(in))
 	if !ok {
 		return false

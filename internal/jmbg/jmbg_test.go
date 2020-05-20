@@ -1,10 +1,10 @@
-package valida
+package jmbg
 
 import (
 	"testing"
 )
 
-func TestJMBG(t *testing.T) {
+func TestOK(t *testing.T) {
 	var tests = []struct {
 		in   string
 		want bool
@@ -25,8 +25,8 @@ func TestJMBG(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		if got := JMBG(tt.in); got != tt.want {
-			t.Errorf("JMBG(%q) = %v; want %v",
+		if got := OK(tt.in); got != tt.want {
+			t.Errorf("OK(%q) = %v; want %v",
 				tt.in, got, tt.want)
 		}
 	}
