@@ -1,8 +1,8 @@
 package jmbg
 
 import (
+	"github.com/dvrkps/valida/internal/check"
 	"github.com/dvrkps/valida/internal/digits"
-	"github.com/dvrkps/valida/internal/validate"
 )
 
 func OK(in string) bool {
@@ -30,5 +30,7 @@ func OK(in string) bool {
 		coef--
 	}
 
-	return validate.IsValidJMBG(zzz, digs.Last())
+	const wantRem = 0
+
+	return check.OK(zzz, digs.Last(), wantRem)
 }
