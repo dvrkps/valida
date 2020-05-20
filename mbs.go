@@ -1,6 +1,9 @@
 package valida
 
-import "github.com/dvrkps/valida/internal/digits"
+import (
+	"github.com/dvrkps/valida/internal/digits"
+	"github.com/dvrkps/valida/internal/validate"
+)
 
 // MBS validate MBS number.
 func MBS(in string) bool {
@@ -26,5 +29,5 @@ func MBS(in string) bool {
 		zzz += d * coef
 	}
 
-	return isValid(zzz, digs.Last())
+	return validate.IsValid(zzz, digs.Last())
 }

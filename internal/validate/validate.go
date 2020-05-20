@@ -1,10 +1,10 @@
-package valida
+package validate
 
-func isValid(zzz int, last int) bool {
+func IsValid(zzz int, last int) bool {
 	return validate(zzz, last, 1)
 }
 
-func isValidJMBG(zzz int, last int) bool {
+func IsValidJMBG(zzz int, last int) bool {
 	return validate(zzz, last, 0)
 }
 

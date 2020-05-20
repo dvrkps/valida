@@ -1,6 +1,9 @@
 package valida
 
-import "github.com/dvrkps/valida/internal/digits"
+import (
+	"github.com/dvrkps/valida/internal/digits"
+	"github.com/dvrkps/valida/internal/validate"
+)
 
 // JMBG validate JMBG number.
 func JMBG(in string) bool {
@@ -28,5 +31,5 @@ func JMBG(in string) bool {
 		coef--
 	}
 
-	return isValidJMBG(zzz, digs.Last())
+	return validate.IsValidJMBG(zzz, digs.Last())
 }

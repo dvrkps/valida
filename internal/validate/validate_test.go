@@ -1,4 +1,4 @@
-package valida
+package validate
 
 import "testing"
 

@@ -1,6 +1,9 @@
 package valida
 
-import "github.com/dvrkps/valida/internal/digits"
+import (
+	"github.com/dvrkps/valida/internal/digits"
+	"github.com/dvrkps/valida/internal/validate"
+)
 
 // MID validate Municipal ID number.
 func MID(in string) bool {
@@ -21,5 +24,5 @@ func MID(in string) bool {
 		zzz += d * coef
 	}
 
-	return isValid(zzz, digs.Last())
+	return validate.IsValid(zzz, digs.Last())
 }
