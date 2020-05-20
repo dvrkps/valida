@@ -1,12 +1,12 @@
-package valida
+package mid
 
 import (
 	"github.com/dvrkps/valida/internal/digits"
 	"github.com/dvrkps/valida/internal/validate"
 )
 
-// MID validate Municipal ID number.
-func MID(in string) bool {
+// OK validate Municipal ID number.
+func OK(in string) bool {
 	digs, ok := digits.ParseDigits([]byte(in))
 	if !ok {
 		return false
