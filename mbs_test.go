@@ -1,21 +1,8 @@
 package valida
 
 import (
-	"fmt"
 	"testing"
 )
-
-func ExampleMBS() {
-	okShort := MBS("01130234")
-	fmt.Println(okShort)
-
-	okLong := MBS("011302340123")
-	fmt.Println(okLong)
-
-	// Output:
-	// true
-	// true
-}
 
 func TestMBS(t *testing.T) {
 	var tests = []struct {

@@ -1,16 +1,8 @@
 package valida
 
 import (
-	"fmt"
 	"testing"
 )
-
-func ExampleMID() {
-	ok := MID("1333")
-	fmt.Println(ok)
-	// Output:
-	// true
-}
 
 func TestMID(t *testing.T) {
 	var tests = []struct {

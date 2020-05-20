@@ -1,16 +1,8 @@
 package valida
 
 import (
-	"fmt"
 	"testing"
 )
-
-func ExampleJMBG() {
-	ok := JMBG("0308964384007")
-	fmt.Println(ok)
-	// Output:
-	// true
-}
 
 func TestJMBG(t *testing.T) {
 	var tests = []struct {

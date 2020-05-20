@@ -1,16 +1,8 @@
 package valida
 
 import (
-	"fmt"
 	"testing"
 )
-
-func ExampleOIB() {
-	ok := OIB("69435151530")
-	fmt.Println(ok)
-	// Output:
-	// true
-}
 
 func TestOIB(t *testing.T) {
 	var tests = []struct {
