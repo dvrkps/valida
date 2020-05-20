@@ -1,4 +1,4 @@
-package valida
+package digits
 
 import (
 	"testing"
@@ -8,10 +8,10 @@ func TestParseDigits(t *testing.T) {
 	tests := []struct {
 		ok   bool
 		in   string
-		want digits
+		want Digits
 	}{
-		{ok: true, in: "01234", want: digits{all: []int{0, 1, 2, 3, 4}}},
-		{ok: true, in: "0", want: digits{all: []int{0}}},
+		{ok: true, in: "01234", want: Digits{all: []int{0, 1, 2, 3, 4}}},
+		{ok: true, in: "0", want: Digits{all: []int{0}}},
 		{in: "12a34"},
 		{in: "-0"},
 		{in: "+4"},
@@ -19,11 +19,11 @@ func TestParseDigits(t *testing.T) {
 	}
 	for _, tt := range tests {
 		in := []byte(tt.in)
-		got, gotOK := parseDigits(in)
+		got, gotOK := ParseDigits(in)
 
 		if !tt.ok {
 			if gotOK {
-				t.Errorf("parseDigits(%q) = %v, %v; want %v, <false>",
+				t.Errorf("ParseDigits(%q) = %v, %v; want %v, <false>",
 					in, got, gotOK, tt.want)
 			}
 
@@ -42,7 +42,7 @@ func TestParseDigits(t *testing.T) {
 		}
 
 		if !equal {
-			t.Errorf("parseDigits(%q) = %v, %v; want %v, <false>",
+			t.Errorf("ParseDigits(%q) = %v, %v; want %v, <false>",
 				tt.in, got, gotOK, tt.want)
 		}
 	}

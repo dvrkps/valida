@@ -1,5 +1,7 @@
 package valida
 
+import "github.com/dvrkps/valida/internal/digits"
+
 // MBS validate MBS number.
 func MBS(in string) bool {
 	const maxDigits = 12
@@ -7,7 +9,7 @@ func MBS(in string) bool {
 		in = in[:8]
 	}
 
-	digs, ok := parseDigits([]byte(in))
+	digs, ok := digits.ParseDigits([]byte(in))
 	if !ok {
 		return false
 	}
@@ -19,10 +21,10 @@ func MBS(in string) bool {
 		coefMax  = 8
 	)
 
-	for i, d := range digs.first(noDigits) {
+	for i, d := range digs.First(noDigits) {
 		coef := coefMax - i
 		zzz += d * coef
 	}
 
-	return isValid(zzz, digs.last())
+	return isValid(zzz, digs.Last())
 }

@@ -1,8 +1,10 @@
 package valida
 
+import "github.com/dvrkps/valida/internal/digits"
+
 // MID validate Municipal ID number.
 func MID(in string) bool {
-	digs, ok := parseDigits([]byte(in))
+	digs, ok := digits.ParseDigits([]byte(in))
 	if !ok {
 		return false
 	}
@@ -14,10 +16,10 @@ func MID(in string) bool {
 		coefMax  = 4
 	)
 
-	for i, d := range digs.first(noDigits) {
+	for i, d := range digs.First(noDigits) {
 		coef := coefMax - i
 		zzz += d * coef
 	}
 
-	return isValid(zzz, digs.last())
+	return isValid(zzz, digs.Last())
 }

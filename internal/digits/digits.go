@@ -1,10 +1,10 @@
-package valida
+package digits
 
-type digits struct {
+type Digits struct {
 	all []int
 }
 
-func (d *digits) first(n int) []int {
+func (d *Digits) First(n int) []int {
 	if len(d.all) < n {
 		return []int{}
 	}
@@ -12,7 +12,7 @@ func (d *digits) first(n int) []int {
 	return d.all[:len(d.all)-1]
 }
 
-func (d *digits) last() int {
+func (d *Digits) Last() int {
 	const minLen = 1
 
 	lenAll := len(d.all)
@@ -23,7 +23,7 @@ func (d *digits) last() int {
 	return d.all[lenAll-1]
 }
 
-func parseDigits(in []byte) (digits, bool) {
+func ParseDigits(in []byte) (Digits, bool) {
 	const (
 		char0 = 48
 		char9 = 57
@@ -33,11 +33,11 @@ func parseDigits(in []byte) (digits, bool) {
 
 	for i, c := range in {
 		if c < char0 || c > char9 {
-			return digits{}, false
+			return Digits{}, false
 		}
 
 		all[i] = int(c) - char0
 	}
 
-	return digits{all: all}, true
+	return Digits{all: all}, true
 }
