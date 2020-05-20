@@ -1,10 +1,10 @@
-package valida
+package oib
 
 import (
 	"testing"
 )
 
-func TestOIB(t *testing.T) {
+func TestOK(t *testing.T) {
 	var tests = []struct {
 		in   string
 		want bool
@@ -24,8 +24,8 @@ func TestOIB(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		if got := OIB(tt.in); got != tt.want {
-			t.Errorf("OIB(%q) = %v; want %v",
+		if got := OK(tt.in); got != tt.want {
+			t.Errorf("OK(%q) = %v; want %v",
 				tt.in, got, tt.want)
 		}
 	}

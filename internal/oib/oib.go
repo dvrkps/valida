@@ -1,10 +1,9 @@
-// Package valida implements JMBG, MBS, Municipal ID and OIB numbers validations.
-package valida
+package oib
 
 import "github.com/dvrkps/valida/internal/digits"
 
-// OIB validate OIB number.
-func OIB(in string) bool {
+// OK validate OIB number.
+func OK(in string) bool {
 	digs, ok := digits.ParseDigits([]byte(in))
 	if !ok {
 		return false
