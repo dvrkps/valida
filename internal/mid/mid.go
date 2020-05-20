@@ -1,8 +1,8 @@
 package mid
 
 import (
+	"github.com/dvrkps/valida/internal/check"
 	"github.com/dvrkps/valida/internal/digits"
-	"github.com/dvrkps/valida/internal/validate"
 )
 
 // OK validate Municipal ID number.
@@ -24,5 +24,7 @@ func OK(in string) bool {
 		zzz += d * coef
 	}
 
-	return validate.IsValid(zzz, digs.Last())
+	const wantRem = 1
+
+	return check.OK(zzz, digs.Last(), wantRem)
 }
