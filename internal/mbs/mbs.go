@@ -1,12 +1,12 @@
-package valida
+package mbs
 
 import (
 	"github.com/dvrkps/valida/internal/digits"
 	"github.com/dvrkps/valida/internal/validate"
 )
 
-// MBS validate MBS number.
-func MBS(in string) bool {
+// OK validate MBS number.
+func OK(in string) bool {
 	const maxDigits = 12
 	if len(in) == maxDigits {
 		in = in[:8]
