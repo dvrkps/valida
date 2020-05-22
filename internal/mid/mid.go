@@ -7,24 +7,27 @@ import (
 
 // OK validate Municipal ID number.
 func OK(in string) bool {
-	digs, ok := digits.ParseDigits([]byte(in))
+	const numDigits = 4
+
+	d, ok := digits.New(in, numDigits)
 	if !ok {
 		return false
 	}
 
-	zzz := 0
+	const coefMax = 4
 
-	const (
-		noDigits = 3
-		coefMax  = 4
+	var (
+		zzz int
+		i   int
 	)
 
-	for i, d := range digs.First(noDigits) {
+	d.Range(func() {
 		coef := coefMax - i
-		zzz += d * coef
-	}
+		zzz += d.Current() * coef
+		i++
+	})
 
 	const wantRem = 1
 
-	return check.OK(zzz, digs.Last(), wantRem)
+	return check.OK(zzz, d.Control, wantRem)
 }
