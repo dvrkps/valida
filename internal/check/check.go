@@ -1,7 +1,7 @@
 package check
 
 // OK checks number.
-func OK(zzz int, control int, wantRem int) bool {
+func OK(zzz int, controlFn func(int) bool, wantRem int) bool {
 	if zzz == 0 {
 		return false
 	}
@@ -9,7 +9,7 @@ func OK(zzz int, control int, wantRem int) bool {
 	const remModulo = 11
 	rem := zzz % remModulo
 
-	if rem == wantRem && control == 0 {
+	if rem == wantRem && controlFn(0) {
 		return true
 	}
 
@@ -21,5 +21,5 @@ func OK(zzz int, control int, wantRem int) bool {
 	const diffMax = 11
 	diff := diffMax - rem
 
-	return control == diff
+	return controlFn(diff)
 }
