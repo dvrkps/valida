@@ -7,9 +7,9 @@ import (
 
 // OK validate JMBG number.
 func OK(in string) bool {
-	const noDigits = 13
+	const size = 13
 
-	d, ok := digits.New(in, noDigits)
+	d, ok := digits.New(in, size)
 	if !ok {
 		return false
 	}
