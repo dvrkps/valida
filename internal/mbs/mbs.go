@@ -7,29 +7,34 @@ import (
 
 // OK validate MBS number.
 func OK(in string) bool {
-	const maxDigits = 12
-	if len(in) == maxDigits {
-		in = in[:8]
+	const (
+		longDigits  = 12
+		shortDigits = 8
+	)
+
+	if len(in) == longDigits {
+		in = in[:shortDigits]
 	}
 
-	digs, ok := digits.ParseDigits([]byte(in))
+	d, ok := digits.New(in, shortDigits)
 	if !ok {
 		return false
 	}
 
-	zzz := 0
-
-	const (
-		noDigits = 7
-		coefMax  = 8
+	var (
+		zzz = 0
+		i   = 0
 	)
 
-	for i, d := range digs.First(noDigits) {
+	const coefMax = 8
+
+	d.Range(func() {
 		coef := coefMax - i
-		zzz += d * coef
-	}
+		zzz += d.Current() * coef
+		i++
+	})
 
 	const wantRem = 1
 
-	return check.OK(zzz, digs.Last(), wantRem)
+	return check.OK(zzz, d.Control, wantRem)
 }
