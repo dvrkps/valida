@@ -4,17 +4,17 @@ import "github.com/dvrkps/valida/internal/digits"
 
 // OK validate OIB number.
 func OK(in string) bool {
-	digs, ok := digits.ParseDigits([]byte(in))
+	const size = 11
+
+	d, ok := digits.New(in, size)
 	if !ok {
 		return false
 	}
 
 	o := 10
 
-	const noDigits = 10
-
-	for _, d := range digs.First(noDigits) {
-		o += d
+	d.Range(func() {
+		o += d.Current()
 		o %= 10
 
 		if o == 0 {
@@ -23,7 +23,7 @@ func OK(in string) bool {
 
 		o *= 2
 		o %= 11
-	}
+	})
 
 	// calc control char
 	const (
@@ -36,5 +36,5 @@ func OK(in string) bool {
 		ctrl = 0
 	}
 
-	return ctrl == digs.Last()
+	return d.Control(ctrl)
 }
