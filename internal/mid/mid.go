@@ -7,9 +7,9 @@ import (
 
 // OK validate Municipal ID number.
 func OK(in string) bool {
-	const numDigits = 4
+	const size = 4
 
-	d, ok := digits.New(in, numDigits)
+	d, ok := digits.New(in, size)
 	if !ok {
 		return false
 	}
