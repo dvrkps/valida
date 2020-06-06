@@ -12,7 +12,6 @@ func TestOK(t *testing.T) {
 		{Name: "too short", Input: "123"},
 		{Name: "invalid", Input: "12345678901"},
 		{Name: "not a number", Input: "123a5b7c901"},
-		{Name: "zeros", Input: "00000000000"},
 		{Name: "empty"},
 	}
 
