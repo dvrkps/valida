@@ -9,6 +9,7 @@ type TestCase struct {
 	Want  bool
 }
 
+// Run runs tests.
 func Run(t *testing.T, fn func(string) bool, testCases []TestCase) {
 	for _, tt := range testCases {
 		tt := tt
