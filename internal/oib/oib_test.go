@@ -2,31 +2,19 @@ package oib
 
 import (
 	"testing"
+
+	"github.com/dvrkps/valida/internal/testutil"
 )
 
 func TestOK(t *testing.T) {
-	var tests = []struct {
-		in   string
-		want bool
-	}{
-		// valid
-		{"69435151530", true},
-		// too short
-		{"123", false},
-		// invalid
-		{"12345678901", false},
-		// not number
-		{"123a5b7c901", false},
-		// all zeros
-		{"00000000000", false},
-		// empty
-		{"", false},
+	var tests = []testutil.TestCase{
+		{Name: "valid", Input: "69435151530", Want: true},
+		{Name: "too short", Input: "123"},
+		{Name: "invalid", Input: "12345678901"},
+		{Name: "not a number", Input: "123a5b7c901"},
+		{Name: "zeros", Input: "00000000000"},
+		{Name: "empty"},
 	}
 
-	for _, tt := range tests {
-		if got := OK(tt.in); got != tt.want {
-			t.Errorf("OK(%q) = %v; want %v",
-				tt.in, got, tt.want)
-		}
-	}
+	testutil.Run(t, OK, tests)
 }
