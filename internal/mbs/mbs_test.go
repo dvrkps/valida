@@ -2,33 +2,21 @@ package mbs
 
 import (
 	"testing"
+
+	"github.com/dvrkps/valida/internal/testutil"
 )
 
 func TestOK(t *testing.T) {
-	var tests = []struct {
-		in   string
-		want bool
-	}{
-		// valid
-		{"01130234", true},
-		{"011302340123", true},
-		// too short
-		{"123", false},
-		// invalid
-		{"12345678", false},
-		// not number
-		{"1a23b567", false},
-		// all zeros
-		{"00000000", false},
-		{"000000000000", false},
-		// empty
-		{"", false},
+	var tests = []testutil.TestCase{
+		{Name: "valid short", Input: "01130234", Want: true},
+		{Name: "valid long", Input: "011302340123", Want: true},
+		{Name: "too short", Input: "123"},
+		{Name: "invalid", Input: "12345678"},
+		{Name: "not a number", Input: "1a23b567"},
+		{Name: "zeros short", Input: "00000000"},
+		{Name: "zeros long", Input: "000000000000"},
+		{Name: "empty", Input: ""},
 	}
 
-	for _, tt := range tests {
-		if got := OK(tt.in); got != tt.want {
-			t.Errorf("OK(%q) = %v; want %v",
-				tt.in, got, tt.want)
-		}
-	}
+	testutil.Run(t, OK, tests)
 }
