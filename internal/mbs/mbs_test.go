@@ -13,9 +13,7 @@ func TestOK(t *testing.T) {
 		{Name: "too short", Input: "123"},
 		{Name: "invalid", Input: "12345678"},
 		{Name: "not a number", Input: "1a23b567"},
-		{Name: "zeros short", Input: "00000000"},
-		{Name: "zeros long", Input: "000000000000"},
-		{Name: "empty", Input: ""},
+		{Name: "empty"},
 	}
 
 	testutil.Run(t, OK, tests)
