@@ -2,9 +2,6 @@ package testutil
 
 import "testing"
 
-// FnOK is validate function.
-type FnOK func(string) bool
-
 // TestCase is test case data.
 type TestCase struct {
 	Name  string
@@ -12,7 +9,7 @@ type TestCase struct {
 	Want  bool
 }
 
-func Run(t *testing.T, fn FnOK, testCases []TestCase) {
+func Run(t *testing.T, fn func(string) bool, testCases []TestCase) {
 	for _, tt := range testCases {
 		tt := tt
 		t.Run(tt.Name, func(t *testing.T) {
