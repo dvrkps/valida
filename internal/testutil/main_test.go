@@ -4,11 +4,11 @@ import "testing"
 
 func TestRun(t *testing.T) {
 	tests := []TestCase{
-		{Name: "ok",
+		{Name: "valid",
 			Input: "valid",
 			Want:  true,
 		},
-		{Name: "not-ok",
+		{Name: "invalid",
 			Input: "invalid",
 			Want:  false,
 		},
