@@ -10,7 +10,7 @@ Valida checks JMBG, MBS, Municipal ID and OIB numbers.
 ## Installation
 
 ```bash
-$ go get github.com/dvrkps/valida
+$ go get github.com/dvrkps/valida@latest
 ```
 
 ## License
