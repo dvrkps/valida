@@ -1,4 +1,4 @@
-# valida [![GoReport Badge]][GoReport] [![Actions Badge]][Actions] [![Codecov Badge]][Codecov]
+# valida [![GoReport Badge]][GoReport] [![Actions Badge]][Actions]
 
 [GoReport]: https://goreportcard.com/report/github.com/dvrkps/valida
 [GoReport Badge]: https://goreportcard.com/badge/github.com/dvrkps/valida
