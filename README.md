@@ -2,8 +2,9 @@
 
 [GoReport]: https://goreportcard.com/report/github.com/dvrkps/valida
 [GoReport Badge]: https://goreportcard.com/badge/github.com/dvrkps/valida
-[Actions]:https://github.com/dvrkps/valida/actions?query=workflow%3A%22Test+and+coverage%22
-[Actions Badge]:https://github.com/dvrkps/valida/workflows/Test/badge.svg
+[Actions]:https://github.com/dvrkps/valida/actions/workflows/test.yml
+[Actions Badge]:https://github.com/dvrkps/valida/actions/workflows/test.yml/badge.svg
+
 
 Valida checks JMBG, MBS, Municipal ID and OIB numbers.
 
